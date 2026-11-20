@@ -1,0 +1,18 @@
+DSTORE — PAKET PEMASANGAN PWA
+
+ISI PAKET
+- index.html: aplikasi DSTORE yang sudah diperbarui
+- manifest.webmanifest: identitas aplikasi
+- sw.js: service worker untuk cache/offline dasar
+- icon-192.png dan icon-512.png: ikon aplikasi
+
+CARA MEMASANG SEBAGAI APLIKASI ANDROID
+1. Upload SEMUA file dalam folder ini ke satu folder hosting yang mendukung HTTPS (misalnya GitHub Pages, Netlify, atau hosting web).
+2. Pastikan index.html, manifest.webmanifest, sw.js, dan kedua ikon berada di folder yang sama.
+3. Buka URL HTTPS tersebut melalui Chrome Android.
+4. Tunggu beberapa detik, lalu tekan tombol unduh/pasang di menu DSTORE atau menu Chrome (⋮) > Install app / Tambahkan ke layar utama.
+
+CATATAN
+- PWA tidak dapat dipasang penuh hanya dengan membuka file HTML lokal (file://) atau dari pratinjau file manager. Browser mensyaratkan origin HTTPS (localhost untuk pengembangan) dan service worker.
+- Untuk pembaruan, unggah ulang file yang baru dan pertahankan nama file.
+- Data katalog terbaru sudah disematkan ke index.html dari backup JSON yang diberikan.
