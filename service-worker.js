@@ -1,5 +1,0 @@
-const CACHE='dstore-vnext-white-event-20261120';
-const CORE=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
-self.addEventListener('install',e=>e.waitUntil((async()=>{const c=await caches.open(CACHE);await c.addAll(CORE);await self.skipWaiting()})()));
-self.addEventListener('activate',e=>e.waitUntil((async()=>{for(const k of await caches.keys())if(k.startsWith('dstore-pwa-')&&k!==CACHE)await caches.delete(k);await self.clients.claim()})()));
-self.addEventListener('fetch',e=>{const r=e.request;if(r.method!=='GET')return;const u=new URL(r.url);if(u.origin!==location.origin)return;if(r.mode==='navigate'){e.respondWith((async()=>{try{const fresh=await fetch(r);const c=await caches.open(CACHE);c.put('./index.html',fresh.clone());return fresh}catch(_){return (await caches.match('./index.html'))||Response.error()}})());return}e.respondWith((async()=>{const c=await caches.match(r);if(c)return c;try{return await fetch(r)}catch(_){return c||Response.error()}})())});
